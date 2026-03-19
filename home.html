@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="../css/home.css">
+
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+ 
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/><!-- Leaflet CSS -->
+
+
+
+</head>
+<body>
+
+    <nav class="navbar">
+        <img src="../images/image (1).png" alt="wheather app">
+        
+<div class="search-bar">
+  <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+  <input
+    type="text"
+    placeholder="Weather in your city"
+    class="search-input"
+  />
+</div>
+
+         <ul class="nav-menu">
+    <li><a href="#">Guide</a></li>
+    <li><a href="#">API</a></li>
+    <li><a href="#">Dashboard</a></li>
+    <li><a href="#">Marketplace</a></li>
+    <li><a href="#">Pricing</a></li>
+    <li><a href="#">Maps</a></li>
+    <li><a href="#">Our Initiatives</a></li>
+    <li><a href="#">Partners</a></li>
+    <li><a href="#">Blog</a></li>
+   <li><a href="/business.html" class="bt1">For Business</a></li>
+
+    <li><a href="#">Sign in</a></li>
+    <li><a href="#">Support centre</a></li>
+  </ul>
+    </nav>
+
+    <main class="main-container">
+
+      <div class="hero-banner">
+  <img src="../images/h5.jpeg" alt="flower image" />
+  
+  <!-- ✅ Text overlay -->
+  <div class="hero-text">
+    <h1><span class="highlight">Open</span>Weather</h1>
+   <p>Weather forecasts, nowcasts and<br>history in a fast and elegant way</p>
+
+  </div>
+</div>
+
+<div class="search-container">
+  <input type="text" placeholder="Search city" class="search-input1" />
+  <button class="search-button">Search</button>
+  <span class="send-icon">✈️</span>
+
+  <button class="toggle-button">Different Weather?</button>
+
+  <div class="unit-selector">
+    <button class="unit-button active">Metric: °C, m/s</button>
+    <button class="unit-button">Imperial: °F, mph</button>
+  </div>
+</div>
+
+<div class="dashboard">
+
+  <div class="top-section">
+    <div class="current-weathercard">
+
+    </div>
+<div class="map-sectioncard">
+  <div id="map"></div>
+</div>
+
+  </div>
+
+ <div class="bottom-section">
+  <div class="hourly-forecastcard">
+<h3>Hourly forecast</h3>
+<canvas id="hourlyChart" height="200"></canvas>
+
+  </div>
+
+  <div class="daily-forecastcard">
+<h3>8-day forecast</h3>
+<div id="forecastList"></div>
+
+  </div>
+</div>
+
+
+</div>
+
+<div class="marquee-container">
+  <div class="marquee-left"></div>
+  <div class="marquee-center">
+  <div class="marquee-text">
+  <img src="../images/Amazon-logo-meaning.jpg" alt="Amazon Logo">
+  <img src="../images/tesla-logo-png_seeklogo-329764.png" alt="Tesla Logo">
+  <img src="../images/images.jpg" alt="Logo 3">
+  <img src="../images/download.png" alt="Logo 4">
+  <img src="../images/apple.jpg" alt="Apple Logo">
+    <img src="../images/Amazon-logo-meaning.jpg" alt="Amazon Logo">
+  <img src="../images/tesla-logo-png_seeklogo-329764.png" alt="Tesla Logo">
+  <img src="../images/images.jpg" alt="Logo 3">
+  <img src="../images/download.png" alt="Logo 4">
+  <img src="../images/apple.jpg" alt="Apple Logo">
+  
+</div>
+
+  </div>
+  <div class="marquee-right"></div>
+</div>
+<div class="api-section">
+  <div class="api-card">
+    <p class="api-label">APIs</p>
+    <h2 class="api-title">One Call API 3.0</h2>
+    <p class="api-description">
+      Choose the subscription plan <strong>"One Call by Call"</strong> and get access to the various data for any coordinates
+      <strong>with One Call API 3.0</strong>. <br>
+      1,000 API calls per day for free! <span class="highlight">Pay as you call</span>.
+    </p>
+
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Included data</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Current</strong> weather</td><td>Now</td></tr>
+        <tr><td><strong>Minute</strong> forecast</td><td>Next hour</td></tr>
+        <tr><td><strong>Hourly</strong> forecast</td><td>Next 48 hours</td></tr>
+        <tr><td><strong>Daily</strong> forecast</td><td>Next 8 days</td></tr>
+        <tr><td><strong>Weather data</strong> by any timestamp</td><td>46+ years back - 4 days ahead forecast</td></tr>
+        <tr><td>National weather alerts</td><td>All available data</td></tr>
+        <tr><td><strong>Daily aggregation</strong></td><td>46+ years back - 1.5 years ahead forecast</td></tr>
+        <tr><td><strong>Weather overview</strong></td><td>Human-readable weather summary</td></tr>
+        <tr><td><strong>AI Weather Assistant</strong></td><td>Weather and weather-related advice in a human-readable format</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="api-image">
+    <img src="../images/one_call_api.png" alt="API Chart Image">
+  </div>
+</div>
+<section class="pro-weather-section">
+  <div class="pro-weather-content">
+    <h2>
+      Use our <strong>Professional collections</strong> to get extended weather data for any coordinates on the globe
+    </h2>
+    <p>
+      For professionals and specialists with middle and large sized projects, we recommend our Professional collections.
+      They include either an extended data set, or various tools for receiving and displaying data and more.
+    </p>
+
+    <div class="pro-weather-icons">
+      <div class="weather-item">
+        <img src="../images/icon-1.png" alt="Current Weather">
+        <div class="item-title">current<br><strong>weather</strong></div>
+        <div class="item-sub">(current)</div>
+      </div>
+
+      <div class="weather-item">
+        <img src="../images/icon-2.png" alt="Hourly Forecast">
+        <div class="item-title">hourly<br><strong>forecast</strong></div>
+        <div class="item-sub">(4 days)</div>
+      </div>
+
+      <div class="weather-item">
+        <img src="../images/icon-3.png" alt="Daily Forecast">
+        <div class="item-title">daily<br><strong>forecast</strong></div>
+        <div class="item-sub">(16 days)</div>
+      </div>
+
+      <div class="weather-item">
+        <img src="../images/icon-4.png" alt="Climatic Forecast">
+        <div class="item-title">climatic<br><strong>forecast</strong></div>
+        <div class="item-sub">(30 days)</div>
+      </div>
+
+      <div class="weather-item">
+        <img src="../images/icon-5.png" alt="Historical Weather">
+        <div class="item-title">historical<br><strong>weather</strong></div>
+        <div class="item-sub">(46+ years back)</div>
+      </div>
+    </div>
+
+    <div class="pro-weather-footer">
+      <p><strong>Called by:</strong>
+         geographic coordinates, zip/post code, city name, city ID, number of cities (only in current weather and forecast APIs)</p>
+      <button class="learn-more-btn">Learn more</button>
+    </div>
+  </div>
+</section>
+<section class="weather-section">
+  <div class="weather-container">
+    <!-- Left content (text list) -->
+    <div class="weather-left">
+      <p>
+        For each point on the globe, we provide historical, current and forecasted weather data via light-speed APIs.
+      </p>
+      <ul>
+        <li><strong>Minute-by-minute forecast</strong></li>
+        <li><strong>Other forecasts:</strong> hourly (4-day), daily (16-day), 30-day climatic forecast</li>
+        <li><strong>Historical data</strong><br>with 46+ years archive for any coordinates</li>
+      </ul>
+    </div>
+
+    <!-- Right content (heading + image) -->
+    <div class="weather-right">
+      <div class="weather-heading">
+        <p class="weather-label">Weather data</p>
+        <h2>
+          Weather for <span class="highlight">any</span> geographic<br>
+          coordinates on the globe
+        </h2>
+      </div>
+      <img src="../images/historical_data_any_location_new (1).png" alt="Weather Diagram">
+    </div>
+  </div>
+</section>
+
+<section class="forecast-section">
+  <div class="forecast-container">
+    <!-- Left Side -->
+    <div class="forecast-left">
+      <p class="forecast-label">Weather data</p>
+      <h2>Forecasted weather data</h2>
+     
+
+      <div class="forecast-bars">
+        <img src="../images/forecasted_weather_data.png" alt="Hourly Forecast">
+      
+      </div>
+    </div>
+
+    <!-- Divider in between -->
+    <div class="divider-line"></div>
+
+    <!-- Right Side -->
+    <div class="forecast-right">
+      <p class="desc">
+        Detailed forecasts available by city name, city ID, geographic coordinates or postal/ZIP code.
+      </p>
+
+      <div class="how-to">
+        <h3>How to obtain</h3>
+        <p>API<br>Bulks</p>
+        <p>
+          A variety of subscriptions with various limits on calls/min,<br>
+          data availability, and service
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="historical-weather-section">
+  <div class="historical-weather-container">
+
+    <!-- Left Column -->
+    <div class="historical-weather-left">
+      <p class="intro-text">
+        Our technology <strong>Time Machine</strong>, has allowed us to enhance data
+        in the Historical Weather Collection: historical weather data is now
+        available for any coordinates and the depth of historical data has
+        been extended to 46+ years.
+      </p>
+
+      <div class="how-to-obtain">
+        <h3>How to obtain</h3>
+
+        <p><strong>Marketplace of prepared data sets</strong><br>
+          (cities, zip codes, grids)</p>
+
+        <p><strong>On-the-fly bulks</strong><br>
+          for customized lists of coordinates</p>
+
+        <p><strong>APIs</strong> (city-based, up to 1 year back; subscriptions with various<br>
+          limits on calls/min, data availability, and service)
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Column (Title + Image) -->
+    <div class="historical-weather-right">
+      <div class="right-heading">
+        <p class="section-label">Weather data</p>
+        <h2>Historical weather data</h2>
+      </div>
+      <img src="../images/circle.png" alt="Historical Data Bubbles">
+    </div>
+
+  </div>
+</section>
+
+<section class="current-weather-section">
+  <div class="current-weather-container">
+
+    <!-- Left Section -->
+    <div class="current-weather-left">
+      <p class="section-label">Weather data</p>
+      <h2>Current weather data</h2>
+      <img src="../images/2circle.png" alt="Current Weather Graphic" />
+    </div>
+
+    <!-- Vertical Line -->
+    <div class="vertical-divider"></div>
+
+    <!-- Right Section -->
+    <div class="current-weather-right">
+      <p class="intro-text">
+        Access current weather data for any location on Earth including over 200,000 cities! 
+        The data is frequently updated based on the global and local weather models, satellites, 
+        radars and a vast network of weather stations.
+      </p>
+
+      <div class="how-to-obtain">
+        <h3>how to obtain</h3>
+
+        <p><strong>APIs</strong><br>
+          (subscriptions with various limits on calls/min, data availability, and service)
+        </p>
+
+        <p><strong>Prepared bulks</strong><br>
+          (cities, zip codes)</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="product-section">
+  <h2 class="product-heading">Our <span class="highlight">new</span> products</h2>
+
+  <div class="product-cards">
+    <!-- Card 1 -->
+    <div class="product-card">
+      <div class="icon-wrapper">
+        <img src="../images/icon-solar-panel.png" alt="Energy Icon">
+      </div>
+      <h3 class="product-title">Energy Dashboard</h3>
+      <p class="product-desc">
+        A comprehensive visual tool for the renewable energy sector. Access crucial historical, current, and forecast solar data, including power generation output and irradiance metrics (GHI, DNI, DHI), to optimize grid management and energy trading decisions.
+      </p>
+      <button class="product-btn">Learn more</button>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="product-card">
+      <div class="icon-wrapper">
+        <img src="../images/cloud.jpg" alt="Extreme Weather Icon">
+      </div>
+      <h3 class="product-title">Extreme Weather Dashboard</h3>
+      <p class="product-desc">
+        Stay ahead of high-impact weather events. This dashboard provides timely alerts, forecasts, and historical data for extreme phenomena like storms and heatwaves, enabling proactive risk assessment and operational planning for any location on the globe.
+      </p>
+      <button class="product-btn">Learn more</button>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="product-card">
+      <div class="icon-wrapper">
+        <img src="../images/icon-5.png" alt="Weather Dashboard Icon">
+      </div>
+      <h3 class="product-title">Weather Dashboard</h3>
+      <p class="product-desc">
+        Your go-to source for global weather insights. Instantly visualize current conditions, detailed forecasts, and interactive weather maps for any location worldwide. A powerful, user-friendly interface for all your weather-related planning and analysis.
+      </p>
+      <button class="product-btn">Open Dashboard</button>
+    </div>
+  </div>
+</section>
+<section class="feature-section">
+  <!-- Left Panel -->
+  <div class="info-panel">
+    <p class="eyebrow-text">Actionable Insights</p>
+    <h2>Your Essential Dashboard for Weather Analysis</h2>
+    <p>
+      Our main weather dashboard provides a complete overview of
+      meteorological conditions anywhere on the globe. Track current
+      weather, view detailed forecasts, and analyze interactive maps in
+      one powerful and intuitive interface. It's the perfect tool for
+      planning, analysis, and decision-making.
+    </p>
+    <ul>
+      <li>Global coverage for any city or coordinates</li>
+      <li>Detailed hourly and daily forecasts</li>
+      <li>Interactive maps (precipitation, temperature, wind, etc.)</li>
+      <li>Simple and user-friendly interface</li>
+    </ul>
+    <button class="btn-outline">Open Dashboard</button>
+  </div>
+
+  <!-- Right Panel -->
+  <div class="image-panel">
+    <div class="content-overlay">
+      <p class="eyebrow-text">Interactive Tools</p>
+      <h2>Specialized Dashboards for Business</h2>
+      <p>
+        For specialized challenges, we offer advanced dashboards designed
+        for specific industries.
+      </p>
+      <div class="sub-feature">
+        <p>
+          <strong>Energy Dashboard:</strong> Designed for the renewable
+          energy sector. Analyze solar irradiance data and forecast power
+          generation to optimize operations and trading decisions.
+        </p>
+        <button class="btn-solid">Learn more</button>
+      </div>
+      <div class="sub-feature">
+        <p>
+          <strong>Extreme Weather Dashboard:</strong> Stay one step ahead of
+          high-impact events. Track storms, heatwaves, and other risks and
+          receive timely alerts to protect assets and ensure safety.
+        </p>
+        <button class="btn-solid">Learn more</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feature-section1">
+  <!-- Right Panel -->
+  <div class="image-panel1">
+
+  </div>
+  <!-- Left Panel -->
+  <div class="info-panel1">
+    <p class="eyebrow-text1">Actionable Insights</p>
+    <h2>Your Essential Dashboard for Weather Analysis</h2>
+    <p>
+      Our main weather dashboard provides a complete overview of
+      meteorological conditions anywhere on the globe. Track current
+      weather, view detailed forecasts, and analyze interactive maps in
+      one powerful and intuitive interface. It's the perfect tool for
+      planning, analysis, and decision-making.
+    </p>
+    <ul>
+      <li>Global coverage for any city or coordinates</li>
+      <li>Detailed hourly and daily forecasts</li>
+      <li>Interactive maps (precipitation, temperature, wind, etc.)</li>
+      <li>Simple and user-friendly interface</li>
+    </ul>
+    <button class="btn-outline1">Open Dashboard</button>
+  </div>
+
+  
+</section>
+
+<section class="info-grid">
+  <!-- Card 1 -->
+  <div class="info-card">
+    <h2>20,000 OpenWeatherMap weather API repositories on GitHub</h2>
+    <p>
+      Explore a variety of example projects using our weather APIs in PHP,
+      Java, Python, GO and more on our Partners page, along with access to
+      over 20,000 repositories on <a href="#">GitHub</a>.
+    </p>
+    <button class="btn-outline-dark">View solutions</button>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="info-card">
+    <h2>Google Weather-Based Campaign Management with OpenWeatherMap API</h2>
+    <p>
+      Run your advertising campaign with the OpenWeatherMap API through
+      Google AdWords.
+    </p>
+    <button class="btn-outline-dark">Read more</button>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="info-card">
+    <h2>Connect your weather station to OpenWeatherMap</h2>
+    <p>
+      Feel free to join our network of private weather stations. At the
+      moment, we have more than 80,000 weather stations around the world.
+    </p>
+    <button class="btn-outline-dark">Connect</button>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="info-card">
+    <h2>Get weather data for free for open source project</h2>
+    <p>
+      We are happy to support open projects with open source code. If you
+      need to make a large number of API calls and you have published your
+      code on GitHub or BitBucket please contact us and we will provide you
+      with extended conditions.
+    </p>
+    <button class="btn-outline-dark">Contact us</button>
+  </div>
+</section>
+
+    </main>
+
+    <footer class="footer">
+  <div class="footer-top">
+    <div class="footer-column">
+      <h4>Product Collections</h4>
+      <ul>
+        <li>Current and Forecast APIs</li>
+        <li>Historical Weather Data</li>
+        <li>Weather Maps</li>
+        <li>Weather Dashboard</li>
+        <li>Widgets</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Technologies</h4>
+      <ul>
+        <li>Our technology</li>
+        <li>Accuracy and quality of weather data</li>
+        <li>Connect your weather station</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Subscription</h4>
+      <ul>
+        <li>How to start</li>
+        <li>Pricing</li>
+        <li>Subscribe for free</li>
+        <li>FAQ</li>
+      </ul>
+
+      <h4>Terms & Conditions</h4>
+      <ul>
+        <li>Terms and conditions of sale</li>
+        <li>Privacy Policy</li>
+        <li>Website terms and conditions</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Company</h4>
+      <p>OpenWeather is a team of IT experts and data scientists...</p>
+      <ul>
+        <li>About us</li>
+        <li>Our offices</li>
+        <li>Blog</li>
+        <li>OpenWeather for Business</li>
+        <li>Ulla, OpenWeather AI assistant</li>
+        <li>Ask a question</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-middle">
+    <p>Download OpenWeather app</p>
+    <div class="footer-apps">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Apple_logo_black.svg" alt="App Store" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" />
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>Supplier of Achilles UVDB community</p>
+    <p>© 2012 — 2025 OpenWeather® All rights reserved</p>
+    <div class="footer-logos">
+      <img src="https://upload.wikimedia.org/wikipedia/en/f/fd/Logo_of_the_Royal_Meteorological_Society.png" alt="RMets">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Carbon_Neutral_Britain_logo.png" alt="Carbon Neutral">
+    </div>
+  </div>
+
+ 
+</footer>
+
+    
+</body>
+<script src="../js/home.js"></script>
+<script src="../js/map.js"></script>
+
+</html>
